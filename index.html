@@ -1,0 +1,59 @@
+<!DOCTYPE>
+
+<html>
+	<head>
+		<title>
+			A small JS library
+		</title>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<h1>My JS Library</h1>
+		<p>This is a small js library that tries to clone some JQuery features.</p>
+		<button onclick="btnHide()">Hide</button>
+		<button onclick="btnShow()">Show</button>
+		<button onclick="btnError()">Chnage BG Color</button>
+		<button onclick="changeText('Changed text')">Change Text</button>
+		<button onclick="toggle()">Toggle</button>
+		<button onclick="chain()">Chaining</button>
+		<button id="btnCounter">Click Me</button>
+		<p id="myParagraph">Some text (MyJQueryLib)</p>
+		<p>Count: <span id="labelCounter">0</span></p>
+		<p id="parOver">Try to over me..</p>
+		
+		<script>
+			function btnHide() {
+				_('myParagraph').hide();
+			}
+			
+			function btnShow() {
+				_('myParagraph').show();
+			}
+			
+			function btnError() {
+				_('myParagraph').bgcolor("#3477B4");
+			}
+			
+			function changeText(text) {
+				_('myParagraph').text(text);
+			}
+			
+			function toggle() {
+				_('myParagraph').toggle();
+			}
+			
+			function chain() {
+				_('myParagraph').bgcolor('red').text('New text');
+			}
+			
+			_('btnCounter').click(function() {
+				_('labelCounter').text((parseInt(_('labelCounter').text())+1));
+			});
+			
+			_('parOver').mouseOver(function() {
+				console.log("mouse over");
+				_('parOver').color('red');
+			});
+		</script>
+	</body>
+</html>
